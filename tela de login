@@ -1,0 +1,95 @@
+import React from 'react';
+import { Text, SafeAreaView, StyleSheet, TextInput, Image } from 'react-native';
+
+export default function App() {
+  const [text, onChangeText] = React.useState('');
+  const [password, onChangePassword] = React.useState('');
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <div style={styles.logcontainer}>
+          <Image
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+          }}
+        />
+        <Text style={styles.paragraph}>Entre na sua conta</Text>
+        <div style={styles.logbox}>
+          <div>
+            <TextInput
+            style={styles.input}
+            onChangeText={onChangeText}
+            value={text}
+            placeholder="Email"
+            />
+          </div>
+          <div>
+            <TextInput
+            style={styles.input}
+            onChangeText={onChangePassword}
+            value={password}
+            placeholder="Senha"
+            keyboardType="password"
+            />
+          </div>
+          <button style={styles.botao}
+          title="Entrar"
+          color="#ffffff"
+          accessibilityLabel="Entre na sua conta ao apertar o botão"
+          >Entrar</button>
+        </div>
+      </div>
+      <Text style={styles.forg}>Esqueci minha senha</Text>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ecf0f1',
+    padding: 10,
+  },
+  logcontainer: {
+   backgroundColor: '#000000',
+   justifyContent: 'center',
+   alignItems: 'center',
+   textAlign: 'center',
+   padding: 10,
+   verticalAlign: 'middle',
+  },
+  paragraph: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  logbox: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+    textAlign: 'center',
+    width: 350,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 2,
+    padding: 10,
+    borderRadius: 5,
+  },
+  botao: {
+    color: "black", 
+    backgroundColor: "000000",
+    padding: 5,
+    width: 75,
+    margin: 12,
+  },
+  forg: {    
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+});
